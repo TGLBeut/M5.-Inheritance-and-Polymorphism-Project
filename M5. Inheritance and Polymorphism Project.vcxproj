@@ -123,16 +123,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="M5. Inheritance and Polymorphism Project.cpp" />
     <ClCompile Include="ProductionWorker.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="ShiftSupervisor.cpp" />
+    <ClCompile Include="Square.cpp" />
     <ClCompile Include="TeamLeader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicShape.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="ProductionWorker.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="ShiftSupervisor.h" />
+    <ClInclude Include="Square.h" />
     <ClInclude Include="TeamLeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

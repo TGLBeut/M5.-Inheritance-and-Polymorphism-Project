@@ -1,34 +1,42 @@
 //M5. Inheritance and Polymorphism Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //Programmer: Sean Greene
 //Date: 16/04/2026
-//Project: Inheritance Hierarchy Program 1
-//Requirements: Create an inheritance hierarchy for employees.
+//Project: Polymorphism Program
+//Requirements: 
 
 #include <iostream>
-#include "ProductionWorker.h"
-#include "ShiftSupervisor.h"
-#include "TeamLeader.h"
+#include "Circle.h"
+#include "Rectangle.h"
+#include "Square.h"
 
 using namespace std;
 
 int main() {
-	cout << "Inheritance and Polymorphism Project\n" << endl;
+    BasicShape* shapes[5];
 
-    cout << "-Employee-\n" << endl;
-    Employee emp("John Doe", "123-A", "1/1/2020");
-    emp.showEmployee();
+    shapes[0] = new Rectangle(5, 3, "Rect1");
+    shapes[1] = new Rectangle(2, 4, "Rect2");
+    shapes[2] = new Circle(0, 0, 3, "Circle1");
+    shapes[3] = new Circle(1, 1, 5, "Circle2");
+    shapes[4] = new Square(4, "Square1");
 
-    cout << "\n-Production Worker-\n" << endl;
-    ProductionWorker pw("Jane Smith", "456-B", "3/5/2021", 1, 20);
-    pw.showProductionWorker();
+    cout << "--Initial Areas--\n" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << shapes[i]->getName() << ": " << shapes[i]->getArea() << endl;
+    }
 
-    cout << "\n-Shift Supervisor-\n" << endl;
-    ShiftSupervisor ss("Bob Brown", "789-C", "6/10/2019", 55000, 2500);
-    ss.showShiftSupervisor();
+    cout << "\n--After Changes--\n" << endl;
+    ((Circle*)shapes[2])->setRadius(10);
+    ((Rectangle*)shapes[0])->setLength(10);
+    ((Square*)shapes[4])->setSide(6);
 
-    cout << "\n-Team Leader-\n" << endl;
-    TeamLeader tl("Alice Green", "101-D", "8/15/2022", 2, 22, 300, 40, 35);
-    tl.showTeamLeader();
+    for (int i = 0; i < 5; i++) {
+        cout << shapes[i]->getName() << ": " << shapes[i]->getArea() << endl;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        delete shapes[i];
+    }
 
     return 0;
 }
