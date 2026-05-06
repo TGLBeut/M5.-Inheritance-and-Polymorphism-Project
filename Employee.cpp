@@ -1,16 +1,20 @@
 #include "Employee.h"
 
-Employee::Employee(string n, string num, string date) {
+Employee::Employee(string n, int num, string date) {
     name = n;
-    employeeNumber = num;
+    setEmployeeNumber(num);
     hireDate = date;
 }
 
 void Employee::setName(string n) 
 { name = n; }
 
-void Employee::setEmployeeNumber(string num) 
-{ employeeNumber = num; }
+void Employee::setEmployeeNumber(int num) {
+    if (num < 0 || num > 9999) {
+        throw InvalidEmployeeNumber();
+    }
+    employeeNumber = num;
+}
 
 void Employee::setHireDate(string date) 
 { hireDate = date; }
@@ -18,7 +22,7 @@ void Employee::setHireDate(string date)
 string Employee::getName() const 
 { return name; }
 
-string Employee::getEmployeeNumber() const 
+int Employee::getEmployeeNumber() const 
 { return employeeNumber; }
 
 string Employee::getHireDate() const 

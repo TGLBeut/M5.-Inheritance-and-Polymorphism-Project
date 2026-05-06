@@ -1,19 +1,29 @@
 #include "ShiftSupervisor.h"
+#include <iostream>
 
-ShiftSupervisor::ShiftSupervisor(string n, string num, string date, double sal, double bon)
+using namespace std;
+
+ShiftSupervisor::ShiftSupervisor(string n, int num, string date, double sal, double bon)
     : Employee(n, num, date) {
     salary = sal;
     bonus = bon;
 }
 
-void ShiftSupervisor::setSalary(double sal) { salary = sal; }
-void ShiftSupervisor::setBonus(double bon) { bonus = bon; }
+void ShiftSupervisor::setSalary(double sal) {
+    salary = sal;
+}
 
-double ShiftSupervisor::getSalary() const 
-{ return salary; }
+void ShiftSupervisor::setBonus(double bon) {
+    bonus = bon;
+}
 
-double ShiftSupervisor::getBonus() const 
-{ return bonus; }
+double ShiftSupervisor::getSalary() const {
+    return salary;
+}
+
+double ShiftSupervisor::getBonus() const {
+    return bonus;
+}
 
 void ShiftSupervisor::showShiftSupervisor() const {
     showEmployee();

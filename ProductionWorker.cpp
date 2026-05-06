@@ -1,22 +1,32 @@
 #include "ProductionWorker.h"
 
-ProductionWorker::ProductionWorker(string n, string num, string date, int s, double rate)
+ProductionWorker::ProductionWorker(string n, int num, string date, int s, double rate)
     : Employee(n, num, date) {
-    shift = s;
-    hourlyPayRate = rate;
+    setShift(s);
+    setPayRate(rate);
 }
 
-void ProductionWorker::setShift(int s) 
-{ shift = s; }
+void ProductionWorker::setShift(int s) {
+if (s != 1 && s != 2) {
+        throw InvalidShift();
+}
+shift = s;
+}
 
-void ProductionWorker::setPayRate(double rate) 
-{ hourlyPayRate = rate; }
+void ProductionWorker::setPayRate(double rate) {
+if (rate < 0) {
+        throw InvalidPayRate();
+}
+hourlyPayRate = rate;
+}
 
-int ProductionWorker::getShift() const 
-{ return shift; }
+int ProductionWorker::getShift() const {
+return shift;
+}
 
-double ProductionWorker::getPayRate() const 
-{ return hourlyPayRate; }
+double ProductionWorker::getPayRate() const {
+return hourlyPayRate;
+}
 
 void ProductionWorker::showProductionWorker() const {
     showEmployee();

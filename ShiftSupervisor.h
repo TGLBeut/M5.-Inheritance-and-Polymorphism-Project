@@ -2,6 +2,9 @@
 #define SHIFTSUPERVISOR_H
 
 #include "Employee.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 class ShiftSupervisor : public Employee {
 private:
@@ -9,7 +12,8 @@ private:
     double bonus;
 
 public:
-    ShiftSupervisor(string n, string num, string date, double sal, double bon);
+    ShiftSupervisor(string n = "", int num = 0, string date = "",
+        double sal = 0.0, double bon = 0.0);
 
     void setSalary(double sal);
     void setBonus(double bon);
